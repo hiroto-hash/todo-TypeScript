@@ -2,6 +2,8 @@ import { createSocket } from 'dgram';
 import express from 'express'
 import logger from 'morgan'
 import { sql } from './sqlConnection';
+import swaggerUi from "swagger-ui-express";
+import swaggerJSDoc from "swagger-jsdoc";
 
 const app: express.Express = express()
 
@@ -17,8 +19,41 @@ app.use(logger("dev"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// GetとPostのルーティング
-const router: express.Router = express.Router()
+// Swagger
+  const options = {
+      swaggerDefinition: {
+        info: {
+          title: "express app",
+          version: "1.0.0"
+        }
+      },
+      apis: ["./app.ts"]
+    };
+    // swggerのリンク先
+    app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerJSDoc(options)));
+
+const router: express.Router = express.Router();
+/**
+ * @swagger
+ * /api/get:
+ *   get:
+ *     tags:
+ *       - item
+ *     summary: 一覧取得
+ *     description:
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: タイトル
+ *     parameters:
+ *      - id: id
+ *        tpye: number
+ *        description: 自分のid
+ *      - name: name
+ *        type: string
+ *        description: 名前
+ */
 router.get('/api/get', (req: express.Request, res: express.Response) => {
   res.send(req.query)
   sql.query('SELECT * FROM test_table', (err, results) => {
@@ -28,6 +63,18 @@ router.get('/api/get', (req: express.Request, res: express.Response) => {
     console.log(results);
   })
 })
+
+/**
+ * @swagger
+ * /api/post:
+ *   post:
+ *     description: 新規登録
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: タイトル
+ */
 router.post('/api/post', (req: express.Request, res: express.Response) => {
   res.send(req.body)
   sql.query('INSERT INTO test_table SET ?', req.body, (err, results) => {
