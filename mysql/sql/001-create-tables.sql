@@ -10,3 +10,7 @@ create table IF not exists `test_table`
  `updated_at`       Datetime DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- data --
+INSERT INTO `test_table` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'テスト', '2020-12-06 10:26:18', '2020-12-06 10:26:26');
