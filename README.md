@@ -48,7 +48,9 @@ $ docker images -aq | xargs docker rmi
 ```
 
 ### やりたいこと
-- [ ] sqlと接続確認
+- [x] sqlと接続確認
+- [ ] CRUD機能
+- [ ] session管理
 - [ ] Lint入れたい
 - [ ] [ホットデプロイしたい](https://note.com/kawa1228/n/nb18e19fbf4cc)
 - [ ] [swagger入れたい](https://blog.mamansoft.net/2019/08/12/develop-express-with-typescript-cool-environment/#typescript%E5%8C%96)

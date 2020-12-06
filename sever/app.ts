@@ -1,5 +1,7 @@
+import { createSocket } from 'dgram';
 import express from 'express'
 import logger from 'morgan'
+import { sql } from './sqlConnection';
 
 const app: express.Express = express()
 
@@ -19,9 +21,21 @@ app.use(express.urlencoded({ extended: true }))
 const router: express.Router = express.Router()
 router.get('/api/get', (req: express.Request, res: express.Response) => {
   res.send(req.query)
+  sql.query('SELECT * FROM test_table', (err, results) => {
+    if (err) {
+      console.log('sql error');
+    }
+    console.log(results);
+  })
 })
 router.post('/api/post', (req: express.Request, res: express.Response) => {
   res.send(req.body)
+  sql.query('INSERT INTO test_table SET ?', req.body, (err, results) => {
+    if (err) {
+      console.log('sql error');
+    }
+    console.log(results);
+  })
 })
 app.use(router)
 
