@@ -17,9 +17,9 @@ $ docker-compose up --build
 
 ### 各コンテナのurl
 
-| APIサーバ       |       MYSQL    |   phpmyadmin   |
-|:--------------:|:--------------:|:--------------:|
-| localhost:3000 | localhost:3306 | localhost:8080 |
+| APIサーバ       |       MYSQL    |   phpmyadmin   |  swagger               |
+|:--------------:|:--------------:|:--------------:|:----------------------:|
+| localhost:3000 | localhost:3306 | localhost:8080 | localhost:3000/swagger |
 
 
 ### dockerコマンド
@@ -49,8 +49,11 @@ $ docker images -aq | xargs docker rmi
 
 ### やりたいこと
 - [x] sqlと接続確認
+- [x] UintTest入れてみる
+- [ ] ORM入れるか悩む[typeorm](https://typeorm.io/#/)
+- [ ] session管理[Passport.js ](https://qiita.com/tuneyukkie/items/b1bc2a26cfb7c480e56b)
 - [ ] CRUD機能
-- [ ] session管理
 - [ ] Lint入れたい
 - [ ] [ホットデプロイしたい](https://note.com/kawa1228/n/nb18e19fbf4cc)
-- [ ] [swagger入れたい](https://blog.mamansoft.net/2019/08/12/develop-express-with-typescript-cool-environment/#typescript%E5%8C%96)
+- [x] [swagger入れたい](https://blog.mamansoft.net/2019/08/12/develop-express-with-typescript-cool-environment/#typescript%E5%8C%96)
+- [ ] push時にテスト回したい[husky](https://typicode.github.io/husky/#/)
