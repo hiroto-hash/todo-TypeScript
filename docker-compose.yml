@@ -29,7 +29,7 @@ services:
     working_dir: /app
     # npmでyarnをインストールしたとにseverを起動
     command: >
-      bash -c "npm install -g yarn && yarn start"
+      bash -c "npm install -g yarn && yarn install && yarn start"
     networks:
       - default
     depends_on:

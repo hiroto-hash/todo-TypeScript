@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }))
           version: "1.0.0"
         }
       },
-      apis: ["./app.ts"]
+      apis: ["./controller/*.ts"]
     };
     // swggerのリンク先
     app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerJSDoc(options)));
@@ -47,12 +47,13 @@ const router: express.Router = express.Router();
  *       200:
  *         description: タイトル
  *     parameters:
- *      - id: id
- *        tpye: number
+ *      - name: id
+ *        in: path
+ *        required: true
  *        description: 自分のid
  *      - name: name
- *        type: string
  *        description: 名前
+ *        in: query
  */
 router.get('/api/get', (req: express.Request, res: express.Response) => {
   res.send(req.query)

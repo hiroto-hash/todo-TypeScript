@@ -3,7 +3,7 @@ import { describe, it } from "mocha";
 
 const hoge = (huga: number) => {
   return huga + 1;
-}
+};
 
 describe('divided', function () {
   it('should return 2 when the value is 4', () => {
