@@ -10,13 +10,16 @@ module.exports = {
   },
   module: {
     rules: [
+      { test: /\.tsx$/, use: 'ts-loader' },
       {
-        test: /\.tsx$/,
-        //loaderの指定 tsconfig.json→"jsx":"react"とセット
+        test: /\.css/,
         use: [
-          { loader: 'ts-loader' },
+          "style-loader",
+          {
+            loader: "css-loader",
+          }
         ]
-      },
+      }
     ],
   },
   resolve: {
