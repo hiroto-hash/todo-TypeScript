@@ -9,8 +9,11 @@ module.exports = {
     path: path.resolve(`${__dirname}/dist`),
   },
   module: {
+    // css-loader->style-loader->ts-loader
     rules: [
+      //typescriptのloader
       { test: /\.tsx$/, use: 'ts-loader' },
+      //cssのloader 
       {
         test: /\.css/,
         use: [

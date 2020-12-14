@@ -8,21 +8,21 @@ import Task from "./task";
 class Main extends Component {
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <Header />
         <Container>
           <Row>
-            <Col>
+            <Col md={{ span: 3, offset: 3 }}>
               <h1>TODO LIST</h1>
             </Col>
-            <Col>
+            <Col md={{ span: 3, offset: 3 }}>
               <Button variant="outline-warning">
                 <Link to="/task">新規作成</Link>
               </Button>{" "}
             </Col>
           </Row>
+          <Task />
         </Container>
-        <Task />
         <Footer />
       </div>
     );

@@ -4,11 +4,13 @@ import "../style.css";
 class Footer extends Component {
   render() {
     return (
-      <Navbar bg="warning" variant="dark">
-        <Navbar.Collapse className="justify-content-end">
-          <p className="footer">dcproject0001</p>
-        </Navbar.Collapse>
-      </Navbar>
+      <div className="footer">
+        <Navbar bg="warning" variant="dark">
+          <Navbar.Collapse className="justify-content-center">
+            <p className="footer-text">@dcproject0001</p>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
     );
   }
 }

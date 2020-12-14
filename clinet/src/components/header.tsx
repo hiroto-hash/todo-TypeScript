@@ -5,7 +5,7 @@ import "../style.css";
 class Header extends Component {
   render() {
     return (
-      <div>
+      <div className="header">
         <Navbar bg="warning" variant="dark">
           <Navbar.Brand href="/" className="header-text">dcproject0001</Navbar.Brand>
           <Navbar.Toggle />
