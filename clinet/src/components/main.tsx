@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "./header";
 import Footer from "./footer";
 import Task from "./task";
+import { connect } from 'react-redux';
 
 class Main extends Component {
   render() {

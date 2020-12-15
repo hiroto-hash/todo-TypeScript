@@ -1,17 +1,26 @@
-import React from 'react';
-import { render } from 'react-dom'
-import ReactDOM from 'react-dom';
+import React from "react";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Main from './components/main'
+import Main from "./components/main";
+// import reducer from "./reducer";
+import { composeWithDevTools } from 'redux-devtools-extension'
+import thunk from 'redux-thunk';
 
+
+// const store = createStore(reducer,applyMiddleware(thunk));
 
 ReactDOM.render(
-  <BrowserRouter>
-  <Switch>
-    <Route path='/task' component={Main} />
-    {/* <Route path='/task/:id' component={Main} />
+  // <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/task" component={Main} />
+        {/* <Route path='/task/:id' component={Main} />
     <Route path='/task/:id' component={Main} /> */}
-  </Switch>
-  </BrowserRouter>,
-  document.getElementById('root') 
-)
+      </Switch>
+    </BrowserRouter>
+  // </Provider>
+  ,
+  document.getElementById("root")
+);

@@ -1,4 +1,6 @@
 const path = require('path');
+const webpack = require('webpack')
+
 module.exports = {
   mode: 'development',
   //起点になるエントリポイント
@@ -9,7 +11,7 @@ module.exports = {
     path: path.resolve(`${__dirname}/dist`),
   },
   module: {
-    // css-loader->style-loader->ts-loader
+    // css-loader->style-loader
     rules: [
       //typescriptのloader
       { test: /\.tsx$/, use: 'ts-loader' },

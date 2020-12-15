@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import { Button, ButtonGroup, Breadcrumb, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { readEvents } from '../actions/index'
+
 
 class Task extends Component {
+  componentDidMount() {
+    console.log(readEvents)
+  }
   render() {
     return (
       <div>
