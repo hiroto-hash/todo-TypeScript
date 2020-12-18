@@ -40,5 +40,7 @@ module.exports = {
     publicPath: '/',
     noInfo: false,
     historyApiFallback: true
-  }
+  },
+  devtool: "source-map"
+  
 };

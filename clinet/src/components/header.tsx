@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Button, Navbar, NavDropdown } from "react-bootstrap";
-import "../style.css";
+import React, { Component } from "react"
+import { Button, Navbar, NavDropdown } from "react-bootstrap"
+import "../style.css"
 
 class Header extends Component {
   render() {
@@ -21,7 +21,7 @@ class Header extends Component {
           </Navbar.Collapse>
         </Navbar>
       </div>
-    );
+    )
   }
 }
-export default Header;
+export default Header

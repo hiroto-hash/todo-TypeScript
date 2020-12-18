@@ -1,26 +1,15 @@
 import axios from "axios";
+import { stub } from "./test-stub";
 
 export const READ_EVENTS = "READ_EVENTS";
 
-const ROOT_URL = "localhost:3000";
+// const ROOT_URL = "http://localhost:3000"
+const ROOT_URL = "https://udemy-utils.herokuapp.com/api/v1";
+const QUERYSTRING = "?token=token123";
 
-// interface GetData {
-//   taskId: number;
-//   title: string;
-//   description: string;
-//   status: string;
-//   createTime: string;
-//   updateTime?: string;
-//   tag?: string[];
-// }
-
-export const readEvents = async(dispatch:any) => {
-  const response = await axios.get(`${ROOT_URL}/api/get`);
-  console.log(response)
-  dispatch({ type: READ_EVENTS, response });
-};
-
-// export const readEvents = () => {
-//   const response = axios.get(`${ROOT_URL}/api/get`)
-//   console.log(response)
-// }
+export async function readEvents(dispatch: any) {
+  // const response = await axios.get(`${ROOT_URL}/api/get`)
+  // const response = await axios.get(`${ROOT_URL}/events${QUERYSTRING}`);
+  //dispatchでtest.stub.jsonを返す様にする
+  dispatch({ type: "READ_EVENTS", stub });
+}

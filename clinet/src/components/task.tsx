@@ -1,14 +1,20 @@
 import React, { Component } from "react";
 import { Button, ButtonGroup, Breadcrumb, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { readEvents } from '../actions/index'
-
+import { readEvents } from "../actions/index";
+import { connect } from "react-redux";
 
 class Task extends Component {
   componentDidMount() {
-    console.log(readEvents)
+    readEvents({ limit: 0 });
+  }
+  renderList() {
+    console.log(this.props)
   }
   render() {
+    this.renderList()
+    const getList = this.props;
+    console.log(getList);
     return (
       <div>
         <Row className="justify-content-md-center">
@@ -29,9 +35,7 @@ class Task extends Component {
           </Col>
           <Col>
             <Breadcrumb>
-              <div>
-                <p> task text</p>
-              </div>
+              <div>{}</div>
             </Breadcrumb>
           </Col>
         </Row>
@@ -40,4 +44,9 @@ class Task extends Component {
   }
 }
 
-export default Task;
+const mapStateToProps = (state: any) => ({ events: state.events });
+const mapDispatchToProps = (dispatch: any) => {
+  readEvents(dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Task);

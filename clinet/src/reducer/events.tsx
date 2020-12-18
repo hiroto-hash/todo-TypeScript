@@ -1,10 +1,17 @@
-import { READ_EVENTS } from "../actions/index";
+import { READ_EVENTS } from "../actions/index"
+import _ from "lodash"
 
-// export const getAxios = (state = {}, action:void) => {
-//   switch (action.type) {
-//     case READ_EVENTS:
-//       return action;
-//     default:
-//       return state;
-//   }
-// };
+
+//acionの型定義する
+//lodashでkey＝＝＝idとする
+
+export default (events = {}, action:any) => {
+  switch (action.type) {
+    case READ_EVENTS:
+      console.log(action.stub.data)
+      // return action.response.data
+      return _.mapKeys(action.stub.data, 'taskId')
+    default:
+      return events
+  }
+}

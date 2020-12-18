@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
-// import { getAxios } from './events';
+import { combineReducers } from 'redux'
+import  events  from './events'
 
-// export default combineReducers({ getAxios })
+export default combineReducers({ events })

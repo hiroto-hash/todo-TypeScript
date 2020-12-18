@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Header from "./header";
-import Footer from "./footer";
-import Task from "./task";
-import { connect } from 'react-redux';
+import React, { Component } from "react"
+import { Button, Container, Row, Col } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import Header from "./header"
+import Footer from "./footer"
+import Task from "./task"
+
 
 class Main extends Component {
   render() {
@@ -26,7 +26,7 @@ class Main extends Component {
         </Container>
         <Footer />
       </div>
-    );
+    )
   }
 }
-export default Main;
+export default Main

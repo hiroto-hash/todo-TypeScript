@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Navbar } from "react-bootstrap";
-import "../style.css";
+import React, { Component } from "react"
+import { Navbar } from "react-bootstrap"
+import "../style.css"
 class Footer extends Component {
   render() {
     return (
@@ -11,8 +11,8 @@ class Footer extends Component {
           </Navbar.Collapse>
         </Navbar>
       </div>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer
