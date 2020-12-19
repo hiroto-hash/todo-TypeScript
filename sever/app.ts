@@ -20,17 +20,17 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Swagger
-  const options = {
-      swaggerDefinition: {
-        info: {
-          title: "express app",
-          version: "1.0.0"
-        }
-      },
-      apis: ["./controller/*.ts"]
-    };
-    // swggerのリンク先
-    app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerJSDoc(options)));
+const options = {
+  swaggerDefinition: {
+    info: {
+      title: "express app",
+      version: "1.0.0"
+    }
+  },
+  apis: ["./controller/*.ts"]
+};
+// swggerのリンク先
+app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerJSDoc(options)));
 
 const router: express.Router = express.Router();
 /**

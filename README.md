@@ -1,5 +1,8 @@
 # 環境構築手順
 
+※nodeとyarnをグローバルインストールしておく
+windowsの場合はnpxも忘れずに
+
 1. docker Desktopを[インストール](https://www.docker.com/products/docker-desktop)する
 2. ./init-sql.sh のパーミッションを変更する
 ```
@@ -21,6 +24,12 @@ $ docker-compose up --build
 |:--------------:|:--------------:|:--------------:|:----------------------:|
 | localhost:3000 | localhost:3306 | localhost:8080 | localhost:3000/swagger |
 
+## for windows 10 home
+1. docker toolboxを管理者権限でインストール
+2. docker toolboxを管理者で起動
+※Windowsの場合はVirtualboxの仮想マシンを経由するので
+http://192.168.99.100:ポート番号
+でアクセス
 
 ### dockerコマンド
 ```
