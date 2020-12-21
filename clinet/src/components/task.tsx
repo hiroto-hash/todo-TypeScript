@@ -1,20 +1,48 @@
-import React, { Component } from "react";
+import React, { Component, Dispatch } from "react";
 import { Button, ButtonGroup, Breadcrumb, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { readEvents } from "../actions/index";
 import { connect } from "react-redux";
+import _ from "lodash";
+import events, { listData } from "../reducer/events";
+
+// interface getProps {
+//   events: {
+//     // type?: string;
+//     data: {
+//       taskId: number;
+//       title: string;
+//       description: string;
+//       status: string;
+//       createTime: string;
+//       updateTime: string;
+//       tag?: string[];
+//     }[];
+//   };
+// }
 
 class Task extends Component {
+  // constructor(props: getProps) {
+  //   super(props);
+  // }
   componentDidMount() {
     readEvents({ limit: 0 });
   }
   renderList() {
-    console.log(this.props)
+    // const { hoge } = this.props;
+    // console.log(hoge);
+    console.log(this.props);
+    // return this.props.map((list) => {
+    //   <p>{list.description}</p>;
+    // });
+    //  map(this.props.stub.data, (events: listData) => (
+    //   <Breadcrumb>
+    //     <p>{events.}</p>
+    //   </Breadcrumb>
+    // ));
   }
   render() {
-    this.renderList()
-    const getList = this.props;
-    console.log(getList);
+    this.renderList();
     return (
       <div>
         <Row className="justify-content-md-center">
@@ -30,21 +58,14 @@ class Task extends Component {
               </ButtonGroup>
             </Breadcrumb>
           </Col>
-          <Col md="auto">
-            <Breadcrumb>日付</Breadcrumb>
-          </Col>
-          <Col>
-            <Breadcrumb>
-              <div>{}</div>
-            </Breadcrumb>
-          </Col>
+          {/* <Col>{this.renderList()}</Col> */}
         </Row>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state: any) => ({ events: state.events });
+const mapStateToProps = (state: listData) => state;
 const mapDispatchToProps = (dispatch: any) => {
   readEvents(dispatch);
 };
