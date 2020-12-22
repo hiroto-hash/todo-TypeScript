@@ -2,7 +2,7 @@ import React, { Component, Dispatch } from "react";
 import { Button, ButtonGroup, Breadcrumb, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { readEvents } from "../actions/index";
-import { connect } from "react-redux";
+import { connect, GetProps } from "react-redux";
 import _ from "lodash";
 import events, { listData } from "../reducer/events";
 
@@ -29,8 +29,6 @@ class Task extends Component {
     readEvents({ limit: 0 });
   }
   renderList() {
-    // const { hoge } = this.props;
-    // console.log(hoge);
     console.log(this.props);
     // return this.props.map((list) => {
     //   <p>{list.description}</p>;
@@ -40,6 +38,7 @@ class Task extends Component {
     //     <p>{events.}</p>
     //   </Breadcrumb>
     // ));
+    return 
   }
   render() {
     this.renderList();
