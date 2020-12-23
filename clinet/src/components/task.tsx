@@ -4,22 +4,7 @@ import { Link } from "react-router-dom";
 import { readEvents } from "../actions/index";
 import { connect, GetProps } from "react-redux";
 import _ from "lodash";
-import events, { listData } from "../reducer/events";
-
-// interface getProps {
-//   events: {
-//     // type?: string;
-//     data: {
-//       taskId: number;
-//       title: string;
-//       description: string;
-//       status: string;
-//       createTime: string;
-//       updateTime: string;
-//       tag?: string[];
-//     }[];
-//   };
-// }
+import { listData } from "../reducer/events";
 
 class Task extends Component {
   // constructor(props: getProps) {
