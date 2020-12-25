@@ -1,9 +1,5 @@
-import { READ_EVENTS } from "../actions/index";
-import _ from "lodash";
-
-//acionの型定義する
-//lodashでkey＝＝＝idとする
-export interface listData {
+import { todoActions, Type } from "../actions/index";
+export interface State {
   type?: string;
   data: {
     taskId: number;
@@ -16,7 +12,7 @@ export interface listData {
   }[];
 }
 
-const initialState: listData = {
+export const initialState: State = {
   data: [
     {
       taskId: 0,
@@ -30,16 +26,15 @@ const initialState: listData = {
   ],
 };
 
-export default (events = initialState, action: listData) => {
-  // console.log(action)
+export default function reducer(
+  state: State = initialState,
+  action: todoActions
+) {
   switch (action.type) {
-    case READ_EVENTS:
-      // console.log('////////')
-      // console.log(action.stub.data)
-      // console.log('////////')
-      // return action.response.data
-      return { ...events, data: action.data };
+    case Type.read:
+      // return Object.assign({}, state, action.data);
+      return {...state,data:action}
     default:
-      return events;
+      return state;
   }
-};
+}

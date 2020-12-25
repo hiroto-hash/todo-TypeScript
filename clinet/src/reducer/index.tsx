@@ -1,4 +1,9 @@
-import { combineReducers } from 'redux'
-import  events  from './events'
+import { combineReducers } from "redux";
+import  reducer  from "./events";
+import { getAction } from "../actions/index"
 
-export default combineReducers({ events })
+export type ReduxState = {
+  reducer: getAction
+}
+
+export default combineReducers({ reducer });

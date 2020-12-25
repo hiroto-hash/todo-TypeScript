@@ -1,32 +1,24 @@
-import React, { Component, Dispatch } from "react";
+import React, { Component } from "react";
 import { Button, ButtonGroup, Breadcrumb, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { readEvents } from "../actions/index";
-import { connect, GetProps } from "react-redux";
-import _ from "lodash";
-import { listData } from "../reducer/events";
-
-class Task extends Component {
-  // constructor(props: getProps) {
-  //   super(props);
-  // }
-  componentDidMount() {
-    readEvents({ limit: 0 });
-  }
-  renderList() {
-    console.log(this.props);
-    // return this.props.map((list) => {
-    //   <p>{list.description}</p>;
-    // });
-    //  map(this.props.stub.data, (events: listData) => (
-    //   <Breadcrumb>
-    //     <p>{events.}</p>
-    //   </Breadcrumb>
-    // ));
-    return 
-  }
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { readEvents } from "../actions";
+import { ReduxAction } from "../store";
+import { State } from "../reducer/events";
+interface getList {
+  data: {
+    taskId: number;
+    title: string;
+    description: string;
+    status: string;
+    createTime: string;
+    updateTime: string;
+    tag?: string;
+  }[]
+}
+class Task extends React.Component<getList,{}> {
   render() {
-    this.renderList();
     return (
       <div>
         <Row className="justify-content-md-center">
@@ -42,16 +34,36 @@ class Task extends Component {
               </ButtonGroup>
             </Breadcrumb>
           </Col>
-          {/* <Col>{this.renderList()}</Col> */}
+          <Col>{this.props.data.title}</Col>
+          <Col>{this.props.data.description}</Col>
         </Row>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state: listData) => state;
-const mapDispatchToProps = (dispatch: any) => {
-  readEvents(dispatch);
+const mapStateToProps = (state: getList) => {
+  return {
+    value: state.data
+  };
 };
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  readEvents();
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Task)
+// export class ActionDispatcher {
+//   // constructor(private dispatch: (action: ReduxAction) => void) {}
+//   constructor(private dispatch: Dispatch<ReduxAction>) {}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Task);
+//   public getList() {
+//     this.dispatch(readEvents());
+//   }
+// }
+
+//state.data?にする
+// export default connect(
+//   (state:getList) => ({ value: state.data }),
+//   (dispatch: Dispatch<ReduxAction>) => ({
+//     actions: new ActionDispatcher(dispatch),
+//   })
+// )(Task);

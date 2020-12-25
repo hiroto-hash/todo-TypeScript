@@ -1,16 +1,37 @@
 import axios from "axios";
-import { data } from "./test-stub";
-import { listData } from "../reducer/events";
-
-export const READ_EVENTS = "READ_EVENTS";
+import { stub } from "./test-stub";
+import { Action } from "redux";
 
 // const ROOT_URL = "http://localhost:3000"
-const ROOT_URL = "https://udemy-utils.herokuapp.com/api/v1";
-const QUERYSTRING = "?token=token123";
 
-export async function readEvents(dispatch: any) {
-  // const response = await axios.get(`${ROOT_URL}/api/get`)
-  // const response = await axios.get(`${ROOT_URL}/events${QUERYSTRING}`);
-  //dispatchでtest.stub.jsonを返す様にする
-  dispatch({ type: "READ_EVENTS", data });
+//typeの種類
+export const Type = {
+  read: "READ",
+  create: "CREATE",
+  update: "UPDATE",
+  delete: "DELETE",
+} as const;
+
+type Type = typeof Type[keyof typeof Type];
+
+//actionの型
+export interface getAction extends Action {
+  type: string,
+  data: {
+    taskId: number;
+    title: string;
+    description: string;
+    status: string;
+    createTime: string;
+    updateTime: string;
+    tag?: string[];
+  }[];
 }
+
+
+export const readEvents = (): getAction => ({
+  type: Type.read,
+  data: stub,
+});
+
+export type todoActions = getAction

@@ -1,4 +1,4 @@
-export const data = [
+export const stub = [
   {
     taskId: 1,
     title: "title",
